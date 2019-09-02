@@ -5,6 +5,12 @@ The solution was implemented using
 - MS Visual Studio 2019 Community Edition
 - MS SQL Server 2017 Express Edition
 
+Idea: 
+- have a .NET assembly that runs a XSL transformation
+- register this assembly on MS SQL Server
+- call into the assembly from a stored procedure that creates CSV from any SQL statement
+- run any other XSL transformation on SQL Server
+
 How to reproduce what I have done:
 
 1. Compile the Visual Studio solution using 
