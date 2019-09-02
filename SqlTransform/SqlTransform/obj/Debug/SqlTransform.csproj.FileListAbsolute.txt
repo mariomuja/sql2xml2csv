@@ -1,0 +1,5 @@
+C:\code\sql2xml2csv\SqlTransform\SqlTransform\bin\Debug\SqlTransform.dll
+C:\code\sql2xml2csv\SqlTransform\SqlTransform\bin\Debug\SqlTransform.pdb
+C:\code\sql2xml2csv\SqlTransform\SqlTransform\obj\Debug\SqlTransform.csproj.CoreCompileInputs.cache
+C:\code\sql2xml2csv\SqlTransform\SqlTransform\obj\Debug\SqlTransform.dll
+C:\code\sql2xml2csv\SqlTransform\SqlTransform\obj\Debug\SqlTransform.pdb
