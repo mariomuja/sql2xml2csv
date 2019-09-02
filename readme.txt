@@ -33,7 +33,7 @@ FROM 0x<paste from clipboard>WITH PERMISSION_SET = SAFE;
 5. run deploy_assembly.sql in SQL Server Management Studio (or any other SQL editor)
 
 
-For any questions about the code, then you can reach me at
+For any questions about the code, you can reach me at
 mario.muja@gmx.de
 
 Have fun,
