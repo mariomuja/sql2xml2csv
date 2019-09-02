@@ -4,6 +4,8 @@
   * Created:	2019-09-02
   * Purpose:    transform XML to CSV
   ******************************************************************************************************/
+use core
+go
 
 CREATE OR ALTER PROCEDURE sp_csv
 (@input      NVARCHAR(MAX), 
@@ -52,7 +54,7 @@ AS
             -- if no input was provided, then raise an error
 			IF @input IS NULL
                 BEGIN
-                    RAISERROR('The first argument of sp_csv was NULL. Please provide some XML to tranform.', 16, 1);
+                    RAISERROR('The first argument of sp_csv was NULL. Please provide some XML or a SQL SELECT statement.', 16, 1);
             END;
 
 			IF @inputAsSQL=1 
