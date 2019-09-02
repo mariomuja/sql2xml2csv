@@ -19,6 +19,6 @@ exec sp_csv @input, ';', '"', 0
 
 -- the same from an ordinary SQL statement
 set @input='select top 10 * from core.dbo.dim_claim_motor' 
-exec sp_csv @input, ';', '"', 0, 1
+exec sp_csv @input, ';', '"', 1, 1
 
 go

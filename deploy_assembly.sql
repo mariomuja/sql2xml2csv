@@ -58,38 +58,38 @@ Declare  @resultXML nvarchar(max);
 -- some XML
 Declare  @inputXML nvarchar(max) = '
 <catalog>
-          <cd>
-            <title>Empire Burlesque</title>
-            <artist>Bob Dylan</artist>
-            <country>USA</country>
-            <company>Columbia</company>
-            <price>10.90</price>
-            <year>1985</year>
-          </cd>
-          <cd>
-            <title>Hide your heart</title>
-            <artist>Bonnie Tyler</artist>
-            <country>UK</country>
-            <company>CBS Records</company>
-            <price>9.90</price>
-            <year>1988</year>
-          </cd>
-        </catalog>';
+    <cd>
+		<title>Empire Burlesque</title>
+		<artist>Bob Dylan</artist>
+		<country>USA</country>
+		<company>Columbia</company>
+		<price>10.90</price>
+		<year>1985</year>
+    </cd>
+    <cd>
+		<title>Hide your heart</title>
+		<artist>Bonnie Tyler</artist>
+		<country>UK</country>
+		<company>CBS Records</company>
+		<price>9.90</price>
+		<year>1988</year>
+    </cd>
+</catalog>';
 
 -- some XSL
 Declare  @transformXSL nvarchar(max) = '
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-	<xsl:template match="/">
-		<xsl:for-each select="catalog/cd">
-		  ''<xsl:value-of select="title"/>'',
-		  ''<xsl:value-of select="artist"/>'',
-		  ''<xsl:value-of select="country"/>'',
-		  ''<xsl:value-of select="company"/>'',
-		  <xsl:value-of select="price"/>,      
-		  ''<xsl:value-of select="year"/>'';
-		</xsl:for-each>
-	</xsl:template>
-</xsl:stylesheet>';
+<xsl:template match="/">
+<xsl:for-each select="catalog/cd">
+  ''<xsl:value-of select="title"/>'',
+  ''<xsl:value-of select="artist"/>'',
+  ''<xsl:value-of select="country"/>'',
+  ''<xsl:value-of select="company"/>'',
+  <xsl:value-of select="price"/>,      
+  ''<xsl:value-of select="year"/>'';
+      </xsl:for-each>
+    </xsl:template>
+  </xsl:stylesheet>';
 
 -- transform 
 EXEC core.dbo.sp_transform @resultXML out, @inputXML, @transformXSL;
