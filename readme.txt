@@ -1,5 +1,8 @@
-This repository contains code to transform XML 
-using XSLT on MS SQL Server.
+This repository contains code to transform XML using XSLT on MS SQL Server.
+
+The code can be used to create CSV files directly out of SQL Server stored procedures / functions / scripts.
+
+The code can also be used to run any XML/XSL transformation from within SQL Server stored procedures / function / scripts. 
 
 The solution was implemented using
 - MS Visual Studio 2019 Community Edition
