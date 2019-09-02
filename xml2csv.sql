@@ -9,16 +9,13 @@ declare  @input  nvarchar(max)
 set @input=(select * from cockpit.dbo.fn_cockpit_bi_top_largest_claims(10000, '2017-103', '2019-05-31') for xml raw, root, elements) 
 exec sp_csv @input
 
--- ... with another delimiter
 set @input=(select top 10000 * from core.dbo.dim_policy_motor for xml raw, root, elements) 
-exec sp_csv @input, ';'
+exec sp_csv @input, ';' -- another delimiter
 
--- ... with field separators and without header
 set @input=(select top 10000 * from core.dbo.dim_claim_motor for xml raw, root, elements) 
-exec sp_csv @input, ';', '"', 0
+exec sp_csv @input, ';', '"', 0 -- no header
 
--- the same from an ordinary SQL statement
-set @input='select top 10 * from core.dbo.dim_claim_motor' 
-exec sp_csv @input, ';', '"', 1, 1
+set @input='select * from core.dbo.dim_claim_motor' 
+exec sp_csv @input, ';', '"', 1 /*with header*/, 1 /*accept SQL as input*/
 
 go
