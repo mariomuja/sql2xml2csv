@@ -6,11 +6,12 @@
   ******************************************************************************************************/
 
 CREATE OR ALTER PROCEDURE sp_csv
-(@input     NVARCHAR(MAX), 
- @delimiter NCHAR(1)      = ',', 
- @cover     NVARCHAR(1)   = '', 
- @withHead  BIT           = 1, 
- @pResCode  INT           = 0 OUTPUT --0-OK, 1-ERROR
+(@input      NVARCHAR(MAX), 
+ @delimiter  NCHAR(1)      = ',', 
+ @cover      NVARCHAR(1)   = '', 
+ @withHead   BIT           = 1, 
+ @inputAsSQL BIT		   = 0, 
+ @pResCode   INT           = 0 OUTPUT --0-OK, 1-ERROR
 )
 AS
     BEGIN
@@ -48,14 +49,29 @@ AS
 	</xsl:stylesheet>';
         DECLARE @message NVARCHAR(150);
         BEGIN TRY
-            IF @input IS NULL
+            -- if no input was provided, then raise an error
+			IF @input IS NULL
                 BEGIN
                     RAISERROR('The first argument of sp_csv was NULL. Please provide some XML to tranform.', 16, 1);
             END;
+
+			IF @inputAsSQL=1 
+			BEGIN
+				DECLARE @sSQL nvarchar(max);
+				DECLARE @out nvarchar(max);
+
+				SELECT @sSQL = N'SELECT @retvalOUT = ('+@input+' for xml raw, root, elements)';  
+				SET @out = N'@retvalOUT nvarchar(max) OUTPUT';
+
+				EXEC sp_executesql @sSQL, @out, @retvalOUT=@input OUTPUT;
+			END
+
+			-- transform the input 
             EXEC sp_transform 
                  @csv OUT, 
                  @input, 
                  @xsl;
+
             SELECT @csv;
 
             -- commit transaction if necessary
