@@ -1,3 +1,5 @@
+SQL2XML2CSV
+
 This repository contains code to transform XML using XSLT on MS SQL Server.
 
 The code can be used to create CSV files directly out of SQL Server stored procedures / functions / scripts.
