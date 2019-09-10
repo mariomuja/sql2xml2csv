@@ -6,7 +6,10 @@ The code can be used to create CSV files directly out of SQL Server stored proce
 
 The code can also be used to run any XML/XSL transformation from within SQL Server stored procedures / function / scripts. 
 
-As an example, I have included a SQL Server stored procedure sp_csv, which can be used to create CSV files using XSL transformations on MS SQL Server. You can schedule calls to this procedure on SQL Server to generate CSV content from SELECT statements or SQL Server functions in your database to support data exchange with customers or other systems using the CSV format.
+As an example, I have included a SQL Server stored procedure sp_csv, which can be used to create CSV files 
+using XSL transformations on MS SQL Server. You can schedule calls to this procedure on SQL Server 
+to generate CSV content from SELECT statements or SQL Server functions in your database to support 
+data exchange with customers or other systems using the CSV format.
 
 The solution was implemented using
 - MS Visual Studio 2019 Community Edition
