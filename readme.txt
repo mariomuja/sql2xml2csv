@@ -2,6 +2,11 @@ SQL2XML2CSV
 
 This repository contains code to transform XML using XSLT on MS SQL Server.
 
+Goal: ability to create CSV files directly out of SQL Server stored procedures using a statement as simple as
+
+set @input=(select * from table for xml raw, root, elements)
+exec sp_csv @input
+
 The code can be used to create CSV files directly out of SQL Server stored procedures / functions / scripts.
 
 The code can also be used to run any XML/XSL transformation from within SQL Server stored procedures / function / scripts. 
