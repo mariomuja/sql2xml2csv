@@ -21,7 +21,7 @@ Idea:
 - call into the assembly from a stored procedure that creates CSV from any SQL statement
 - run any other XSL transformation on SQL Server
 
-Some example for the generation of CSV from any SQL Server SELECT statement:
+Some examples for the generation of CSV from any SQL Server SELECT statement:
 ---------------------------------
 declare  @input  nvarchar(max) 
 
